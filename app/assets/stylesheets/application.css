@@ -14,3 +14,16 @@
  *= require_self
  */
 @import "bootstrap";
+
+body{
+	font-family: Futura;
+	margin-top: 6%;
+	text-align: center;
+}
+
+img{
+	width: 80%;
+}
+
+nav{
+	color: pink;}

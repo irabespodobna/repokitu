@@ -1,16 +1,38 @@
+
+<html>
 <header>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<nav class="navbar navbar-default">
-    <%= link_to "home", '/' %> <%= link_to "contact", contact_path %> <%= link_to "team", team_path %>
-  </nav>
+<nav class="navbar fixed-top navbar-light bg-dark">	
+	<ul class="nav nav-pills nav-fill">
+	  <li class="nav-item">
+	    <a class="nav-link active" href="/">Home</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="/contact">Contact</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="/team">Team</a>
+	  </li>
+	</ul>
+</nav>
 </header>
 
+<body class="mx-auto" style="width: 400px;">
+	<% @gossip.each do |popo| %>
+	<div class="card text-center">
+  <div class="card-header">
+  	Gossip n°<%= popo.id %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= popo.author %></h5>
+    <p class="card-text"><%= popo.content %></p>
+    <a href="/gossips/<%= popo.id %>" class="btn btn-primary">En savoir plus</a>
+  </div>
+  <div class="card-footer text-muted">
+    <%= popo.created_at %>
+  </div>
+</div>
+</br>
 
-<h1 class = "BLA">Sweet Home</h1>
-<br />
-<p>
-<% @gossip.each do |popo| %>
-  </br>- <%= popo.author %> <strong>a écrit : </strong><%= popo.content %>
-  <%= link_to "pour en savoir plus", gossip_path(popo)%>
-<% end %>
-</p>
+	<% end %>
+</body>
+</html>
