@@ -1,23 +1,16 @@
 <html>
-<header>
-<nav class="navbar fixed-top navbar-light bg-dark">	
-	<ul class="nav nav-pills nav-fill">
-	  <li class="nav-item">
-	    <a class="nav-link active" href="/">Home</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="/contact">Contact</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="/team">Team</a>
-	  </li>
-	</ul>
-</nav>
-</header>
 
-<body class="mx-auto" style="width: 400px;">
-<h1 class = "BLA">Super Gossip</h1>
-<br />
-<p><%= @individual.created_at %></p>
-<p><%= @individual.content %><br /><%= @individual.autho %></p>
-</body>
+	<body class="mx-auto" style="width: 400px;">
+		<h1>Bienvenu sur The Gossip Project !!</h1>
+        <p>Pour en voir plus, ajoute ton prénom ci-dessous : </p>
+
+        <form action = "home" method="POST" >
+        	<input type="hidden" name="authenticity_token" 
+        	value="<%= form_authenticity_token %>">
+        	<input type="text" name="first_name">
+        	<input type="submit" name="Envoyer">	
+        </form>
+
+
+	</body>
+</html>
